@@ -70,6 +70,6 @@ class KMean:
             final_list.clear()
 
 
-x = KMean(zad1.DecisionSystem('data/spirala.txt', 'data/spirala-type.txt'), 12, 45)
+x = KMean(zad1.DecisionSystem('data/spirala.txt', 'data/spirala-type.txt'), 5, 5)
 
 x.km()

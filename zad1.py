@@ -18,8 +18,12 @@ class DecisionSystem:
     def __init__(self, read_txt: str, read_attributes: str) -> None:
         try:
             data_frame_attributes = pd.read_csv(f'{read_attributes}', header=None, sep='\t')
-            data_frame = pd.read_csv(f'{read_txt}', header=None, sep=' ', names=data_frame_attributes[0],
-                                     skipinitialspace=True)
+            if read_txt == 'data/iris.txt':
+                data_frame = pd.read_csv(f'{read_txt}', header=None, sep='\t', names=data_frame_attributes[0],
+                                         skipinitialspace=True)
+            else:
+                data_frame = pd.read_csv(f'{read_txt}', header=None, sep=' ', names=data_frame_attributes[0],
+                                         skipinitialspace=True)
 
             self.__attributes = data_frame.columns
 
