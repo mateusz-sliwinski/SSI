@@ -1,4 +1,7 @@
 from math import sqrt
+
+from matplotlib import pyplot as plt
+
 import zad1
 
 
@@ -38,8 +41,12 @@ class KMean:
         for main in range(self.iteration):
             for x in range(len(list_value_col_x)):
                 for length in range(self.groups):
-                    metric_value_list.append(distance([list_value_col_x[x], list_value_col_y[x]],
-                                                      [list_rand_x[length], list_rand_y[length]]))
+                    metric_value_list.append(
+                        distance(
+                            [list_value_col_x[x], list_value_col_y[x]],
+                            [list_rand_x[length], list_rand_y[length]]
+                        )
+                    )
 
                     if len(metric_value_list) == self.groups:
                         final_list.append(metric_value_list.copy())
@@ -65,6 +72,17 @@ class KMean:
                 sum_y = 0
 
             print(str(list_rand_x) + ' ' + str(list_rand_y))
+
+            colors = ['red', 'black', 'grey', 'orange', 'magenta']
+            for x in range(len(take_out)):
+                for y in range(101):
+                    if index_list[x] == y:
+                        plt.plot(take_out[0][x], take_out[1][x], marker="o", color=colors[y])
+
+            for x in range(len(list_rand_x)):
+                plt.plot(list_rand_x[x], list_rand_y[x], marker="^", color='green')
+
+            plt.show()
 
             index_list.clear()
             final_list.clear()

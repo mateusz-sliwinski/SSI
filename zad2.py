@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+import matplotlib.patches as mpatches
 
 import zad1
 
@@ -14,40 +15,59 @@ class Visualization:
         df = pd.DataFrame(take_data)
         df.columns = ['1', '2', '3', '4', 'Decision']
         datasets.append(df)
-        print(datasets)
 
         fig, axs = plt.subplots(2, 2)
-        axs[0, 0].plot(datasets[0]["3"], datasets[0]["4"], 'o', c='y', label="Setosa")
-        axs[0, 0].plot(datasets[1]["3"], datasets[1]["4"], 'o', c='b', label="Versicolour")
-        axs[0, 0].plot(datasets[2]["3"], datasets[2]["4"], 'o', c='r', label="Virginica")
-        axs[0, 0].set_title('Plot 1')
-        axs[0, 0].set_xlabel("Petal length")
-        axs[0, 0].set_ylabel("Petal width")
+        for counter in range(len(df)):
+            if df["Decision"][counter] == 1:
+                axs[0, 0].plot(df["3"][counter], df["4"][counter], 'o', c='y', label="Setosa")
+            if df["Decision"][counter] == 2:
+                axs[0, 0].plot(df["3"][counter], df["4"][counter], 'o', c='b', label="Versicolour")
+            if df["Decision"][counter] == 3:
+                axs[0, 0].plot(df["3"][counter], df["4"][counter], 'o', c='r', label="Virginica")
 
-        axs[0, 1].plot(datasets[0]["2"], datasets[0]["4"], 'o', c='y', label="Setosa")
-        axs[0, 1].plot(datasets[1]["2"], datasets[1]["4"], 'o', c='b', label="Versicolour")
-        axs[0, 1].plot(datasets[2]["2"], datasets[2]["4"], 'o', c='r', label="Virginica")
-        axs[0, 1].set_title('Plot 2')
-        axs[0, 1].set_xlabel("Sepal width")
-        axs[0, 1].set_ylabel("Petal width")
+            if df["Decision"][counter] == 1:
+                axs[0, 1].plot(df["2"][counter], df["4"][counter], 'o', c='y', label="Setosa")
+            if df["Decision"][counter] == 2:
+                axs[0, 1].plot(df["2"][counter], df["4"][counter], 'o', c='b', label="Versicolour")
+            if df["Decision"][counter] == 3:
+                axs[0, 1].plot(df["2"][counter], df["4"][counter], 'o', c='r', label="Virginica")
 
-        axs[1, 0].plot(datasets[0]["1"], datasets[1]["4"], 'o', c='y', label="Setosa")
-        axs[1, 0].plot(datasets[1]["1"], datasets[1]["4"], 'o', c='b', label="Versicolour")
-        axs[1, 0].plot(datasets[2]["1"], datasets[2]["4"], 'o', c='r', label="Virginica")
-        axs[1, 0].set_title('Plot 3')
-        axs[1, 0].set_xlabel("Sepal length")
-        axs[1, 0].set_ylabel("Petal width")
+            if df["Decision"][counter] == 1:
+                axs[1, 0].plot(df["1"][counter], df["4"][counter], 'o', c='y', label="Setosa")
+            if df["Decision"][counter] == 2:
+                axs[1, 0].plot(df["1"][counter], df["4"][counter], 'o', c='b', label="Versicolour")
+            if df["Decision"][counter] == 3:
+                axs[1, 0].plot(df["1"][counter], df["4"][counter], 'o', c='r', label="Virginica")
 
-        axs[1, 1].plot(datasets[0]["2"], datasets[0]["3"], 'o', c='y', label="Setosa")
-        axs[1, 1].plot(datasets[1]["2"], datasets[1]["3"], 'o', c='b', label="Versicolour")
-        axs[1, 1].plot(datasets[2]["2"], datasets[2]["3"], 'o', c='r', label="Virginica")
+            if df["Decision"][counter] == 1:
+                axs[1, 1].plot(df["2"][counter], df["3"][counter], 'o', c='y', label="Setosa")
+            if df["Decision"][counter] == 2:
+                axs[1, 1].plot(df["2"][counter], df["3"][counter], 'o', c='b', label="Versicolour")
+            if df["Decision"][counter] == 3:
+                axs[1, 1].plot(df["2"][counter], df["3"][counter], 'o', c='r', label="Virginica")
+
         axs[1, 1].set_title('Plot 4')
         axs[1, 1].set_xlabel("Sepal width")
         axs[1, 1].set_ylabel("Petal length")
 
-        plt.legend()
+        axs[0, 0].set_title('Plot 1')
+        axs[0, 0].set_xlabel("Petal length")
+        axs[0, 0].set_ylabel("Petal width")
 
-        fig.tight_layout(pad=1)
+        axs[0, 1].set_title('Plot 2')
+        axs[0, 1].set_xlabel("Sepal width")
+        axs[0, 1].set_ylabel("Petal width")
+
+        axs[1, 0].set_title('Plot 3')
+        axs[1, 0].set_xlabel("Sepal length")
+        axs[1, 0].set_ylabel("Petal width")
+
+        setosa_patch = mpatches.Patch(color='yellow', label='Setosa')
+        versicolour_patch = mpatches.Patch(color='blue', label='Versicolour')
+        virginica_patch = mpatches.Patch(color='red', label='Virginica')
+
+        plt.legend(handles=[setosa_patch, versicolour_patch, virginica_patch], loc=0, prop={'size': 7.5})
+
         plt.show()
 
 

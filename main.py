@@ -1,4 +1,4 @@
-import zad1, zad2
+import zad1
 
 df = zad1.DecisionSystem('data/iris.txt', 'data/iris-type.txt')
 print(df.get_all_objects()[0].values)
