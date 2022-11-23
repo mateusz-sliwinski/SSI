@@ -80,7 +80,7 @@ class KMean:
                         plt.plot(take_out[0][x], take_out[1][x], marker="o", color=colors[y])
 
             for x in range(len(list_rand_x)):
-                plt.plot(list_rand_x[x], list_rand_y[x], marker="^", color='green')
+                plt.plot(list_rand_x[x], list_rand_y[x], marker="v", color='green')
 
             plt.show()
 
