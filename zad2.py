@@ -67,7 +67,7 @@ class Visualization:
         virginica_patch = mpatches.Patch(color='red', label='Virginica')
 
         plt.legend(handles=[setosa_patch, versicolour_patch, virginica_patch], loc=0, prop={'size': 7.5})
-
+        plt.tight_layout()
         plt.show()
 
 

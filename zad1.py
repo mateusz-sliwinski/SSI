@@ -1,5 +1,7 @@
 import pandas as pd
 
+pd.set_option('display.max_columns', None)
+
 
 class Object:
     values: list[any]
@@ -73,3 +75,8 @@ class DecisionSystem:
         data_df = data_df.astype(float)
 
         return data_df
+
+    def show(self):
+        x = self.get_all_object_float([_ for _ in range(0, 150)], [_ for _ in range(0, 5)])
+        x.columns = self.__attributes
+        return x

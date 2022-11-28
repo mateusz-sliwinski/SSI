@@ -82,6 +82,8 @@ class KMean:
             for x in range(len(list_rand_x)):
                 plt.plot(list_rand_x[x], list_rand_y[x], marker="v", color='green')
 
+            # customowa legenda dla v
+            plt.legend()
             plt.show()
 
             index_list.clear()
