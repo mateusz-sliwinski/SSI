@@ -1,7 +1,7 @@
 from math import sqrt
 
 from matplotlib import pyplot as plt
-
+import matplotlib.patches as mpatches
 import zad1
 
 
@@ -82,8 +82,16 @@ class KMean:
             for x in range(len(list_rand_x)):
                 plt.plot(list_rand_x[x], list_rand_y[x], marker="v", color='green')
 
-            # customowa legenda dla v
-            plt.legend()
+            red_patch = mpatches.Patch(color='red', label='group 1')
+            black_patch = mpatches.Patch(color='black', label='group 2')
+            grey_patch = mpatches.Patch(color='grey', label='group 3')
+            orange_patch = mpatches.Patch(color='orange', label='group 4')
+            magenta_patch = mpatches.Patch(color='magenta', label='group 5')
+            marker_patch = mpatches.Patch(color='green', label='marker v')
+
+            plt.legend(
+                loc=2, prop={'size': 6},
+                handles=[red_patch, black_patch, grey_patch, orange_patch, magenta_patch, marker_patch])
             plt.show()
 
             index_list.clear()
