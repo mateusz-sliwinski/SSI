@@ -60,7 +60,6 @@ def greedy_point(BA, BB):
                     for bitmap_formula_y in range(len(BB[bitmap_formula_x])):
                         if BB[bitmap_formula_x][bitmap_formula_y] == 1 and distance_min > distance_euclidesa(
                                 [bitmap_test_x, bitmap_test_y], [bitmap_formula_x, bitmap_formula_y]):
-
                             distance_min = distance_euclidesa(
                                 [bitmap_test_x, bitmap_test_y],
                                 [bitmap_formula_x, bitmap_formula_y]
@@ -82,9 +81,13 @@ for all_test_list in test_list:
         empty_list.append(measure_similarity_objective(all_test_list, all_formula_list))
 
     x = empty_list.index(max(empty_list))
+    fig, (ax1, ax2) = plt.subplots(2)
 
-    plt.imshow(all_test_list)
-    plt.colorbar()
+    ax1.imshow(formula_list[x])
+    ax1.set_title('formula plot')
+    ax2.imshow(all_test_list)
+    ax2.set_title('test plot')
+    plt.tight_layout()
     plt.show()
 
     print(f'{count} for that {x + 1}')
