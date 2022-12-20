@@ -90,4 +90,4 @@ for all_test_list in test_list:
     plt.tight_layout()
     plt.show()
 
-    print(f'{count} for that {x + 1}')
+    print(f'picture number {count} is similar for {x + 1}')
