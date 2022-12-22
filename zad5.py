@@ -73,14 +73,12 @@ def measure_similarity_objective(BA, BB):
     return -(greedy_point(BA, BB) + greedy_point(BB, BA))
 
 
-count = 0
 for all_test_list in test_list:
     empty_list = []
-    count += 1
     for all_formula_list in formula_list:
         empty_list.append(measure_similarity_objective(all_test_list, all_formula_list))
-
     x = empty_list.index(max(empty_list))
+
     fig, (ax1, ax2) = plt.subplots(2)
 
     ax1.imshow(formula_list[x])
@@ -90,4 +88,12 @@ for all_test_list in test_list:
     plt.tight_layout()
     plt.show()
 
-    print(f'picture number {count} is similar for {x + 1}')
+count = 0
+for test in test_list:
+    print(f' tablica testowa {test}')
+    count = 0
+    for formula in formula_list:
+        count += 1
+        y = measure_similarity_objective(test, formula)
+        print(f' formula {count}: {y}')
+    print('\n')

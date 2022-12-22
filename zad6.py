@@ -89,6 +89,13 @@ class Hopfield:
                     sum_neu_value += img_test[img_test_y] * self.weights[img_test_x][img_test_y]
                 img_test[img_test_x] = 1 if sum_neu_value >= 0 else -1
 
+        plt.imshow(
+            np.reshape(img_test, (-1, 5)))
+        plt.title('results')
+        plt.colorbar()
+        plt.tight_layout()
+        plt.show()
+
         return img_test
 
     def plot(self):
@@ -103,5 +110,5 @@ class Hopfield:
 
 hop = Hopfield(5, 5)
 
-hop.correction(train3)
-hop.recognise_img(test2)
+hop.correction(train2)
+hop.recognise_img(test4)
