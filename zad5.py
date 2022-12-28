@@ -88,6 +88,7 @@ for all_test_list in test_list:
     plt.tight_layout()
     plt.show()
 
+
 count = 0
 for test in test_list:
     print(f' tablica testowa {test}')

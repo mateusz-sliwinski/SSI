@@ -109,5 +109,5 @@ class Hopfield:
 
 hop = Hopfield(5, 5)
 
-hop.correction(train3)
-hop.recognise_img(test3)
+hop.correction(train2)
+hop.recognise_img(test4)
